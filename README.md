@@ -14,3 +14,11 @@ Symlink to `~/.claude/commands/`
 ln -s ~/.config/claude-commands/commands ~/.claude/commands
 ```
 
+## Update
+
+Update with `git pull`
+
+```sh
+cd ~/.config/claude-commands && git pull
+```
+

@@ -1,19 +1,22 @@
 ---
 allowed-tools: Bash(gh:*), Bash(git:*)
 description: Generate a concise GitHub PR description
+argument-hint: [optional-directory]
 ---
 
 # Pull Request Description
 
 Generate a descriptive but concise GitHub Pull Request description for the currently checked out branch.
 
+If a directory is provided as an argument, analyze changes in that repository directory.
+
 Use local git context to analyze changes:
 
-!`git diff main..HEAD`
+!`git -C "$ARGUMENTS" diff main..HEAD || git diff main..HEAD`
 
-!`git status --short`
+!`git -C "$ARGUMENTS" status --short || git status --short`
 
-!`git log --oneline -10`
+!`git -C "$ARGUMENTS" log --oneline -10 || git log --oneline -10`
 
 ## Output Rules
 

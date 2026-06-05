@@ -16,6 +16,8 @@ Use:
 
 !`git diff`
 
+!`git ls-files --others --exclude-standard`
+
 Additional context from user:
 
 $ARGUMENTS

@@ -7,11 +7,9 @@ description: Generate a concise GitHub PR description
 
 Generate a descriptive but concise GitHub Pull Request description for the currently checked out branch.
 
-Use:
+Use local git context to analyze changes:
 
-!`gh pr diff`
-
-Also use local git context if helpful:
+!`git diff main..HEAD`
 
 !`git status --short`
 

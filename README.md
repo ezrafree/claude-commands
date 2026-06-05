@@ -21,4 +21,3 @@ Whenever there's updates here you can update your commands with `git pull`
 ```sh
 cd ~/.config/claude-commands && git pull
 ```
-

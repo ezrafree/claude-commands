@@ -5,7 +5,11 @@ argument-hint: [optional extra items to include, e.g. "mention the pilot prep ca
 
 # Draft my DSU
 
-Write my daily standup update. I read this out loud in the meeting, so it must sound like natural first-person speech — complete sentences I can say in one breath — not a written status report.
+Write my daily standup update. I read this out loud in the meeting, so it must sound like natural first-person speech — short bullet points of complete sentences I can say in one breath — not a written status report.
+
+My update should be as succint as possible, outlining what I worked on at a high level, and anything I need to make the team aware of or need feedback on.
+
+If there are any items that need further discussion, those should be added to a "Parking Lot" section so I can remember to discuss them after everyone has provided their updates during standup.
 
 ## Gather evidence
 
@@ -13,7 +17,7 @@ Write my daily standup update. I read this out loud in the meeting, so it must s
 2. Then fill gaps from GitHub and git. Run these (skip any that fail):
 
 ```bash
-gh search prs --involves @me --updated ">=$(date -v-3d +%F)" --limit 20
+gh search prs --involves @me --updated ">=$(date -v-3d +%F 2>/dev/null || date -d '3 days ago' +%F)" --limit 20
 ```
 
 ```bash
@@ -30,8 +34,6 @@ Filter the results to the previous business day (on Mondays, that is Friday). Di
 Output exactly this shape, inside one fenced markdown block, with nothing after it:
 
 ```markdown
-# DSU
-
 ## Yesterday
 
 - <top-level accomplishment, past tense>
@@ -47,7 +49,7 @@ Output exactly this shape, inside one fenced markdown block, with nothing after 
 
 ## Style rules
 
-- First person, contractions, spoken register: "I fixed", "I verified", "I'll work to get", "and I'll continue chasing".
+- First person, contractions, spoken register: "I fixed", "I verified", "I'll work to get", "and I'll continue chasing", "I cut a PR".
 - 2-4 top-level bullets per section; nested sub-bullets carry the detail. Every line must be speakable in one breath.
 - Reference PRs as `repo#123` in backticks (e.g. `auth0#1960`). Never raw URLs — I can't read a URL out loud.
 - Fold blockers into "Today" as an action I'm taking ("I'll continue chasing an approval from identity on ..."). Only add a `## Blockers` section if something is truly stuck with no action available to me.
@@ -57,8 +59,6 @@ Output exactly this shape, inside one fenced markdown block, with nothing after 
 ## Example of my voice
 
 ```markdown
-# DSU
-
 ## Yesterday
 
 - I identified and fixed the root cause of the grow-dev deploy failures that SSS-459 introduced

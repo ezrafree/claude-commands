@@ -2,7 +2,6 @@
 allowed-tools: Bash(git:*)
 description: Stage and commit changes
 argument-hint: [commit-message]
-disable-model-invocation: true
 ---
 
 # Commit Changes

@@ -2,11 +2,20 @@
 allowed-tools: Bash(git:*)
 description: Stage and commit changes
 argument-hint: [commit-message]
+disable-model-invocation: true
 ---
 
 # Commit Changes
 
 Create a git commit.
+
+## Context
+
+!`git status --short`
+
+!`git diff HEAD`
+
+!`git ls-files --others --exclude-standard`
 
 ## Rules
 
@@ -32,17 +41,17 @@ If `$ARGUMENTS` is provided:
 2. If invalid:
    - explain why
    - suggest a corrected version
-3. If valid:
-   - immediately run:
+   - do not commit
+3. If valid, run exactly once:
 
-!`git add -v . && git commit -m "$ARGUMENTS"`
+   `git add -v . && git commit -m "$ARGUMENTS"`
 
 If `$ARGUMENTS` is empty:
 
-1. Review the current git diff
+1. Review the diff above
 2. Generate a commit message that follows the rules
-3. Immediately run:
+3. Run exactly once:
 
-!`git add -v . && git commit -m "<generated-message>"`
+   `git add -v . && git commit -m "<generated-message>"`
 
 Do not push.

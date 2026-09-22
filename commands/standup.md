@@ -1,6 +1,7 @@
 ---
 description: Draft my daily standup (DSU) in my speakable first-person format
 argument-hint: [optional extra items to include, e.g. "mention the pilot prep call"]
+disable-model-invocation: true
 ---
 
 # Draft my DSU
